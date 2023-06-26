@@ -1,9 +1,9 @@
-export default function SignUpPage() {
+export default function LoginPage() {
   return (
     <main className="flex h-full flex-col items-center justify-center p-24">
       <div className="border border-lake-blue" id="form">
         <div className="border-b border-lake-blue py-2 pl-2 " id="form-header">
-          <h2 className="uppercase text-lake-blue">sign up</h2>
+          <h2 className="uppercase text-lake-blue">login</h2>
         </div>
         <div className="flex flex-col items-center gap-4 px-10 py-6" id="form-content">
           <button className="rounded-full border border-lake-blue px-3 py-2 uppercase text-lake-blue">continue with google</button>
@@ -20,12 +20,6 @@ export default function SignUpPage() {
                 password
               </label>
               <input type="password" name="password" id="password" className="bg-lake-gray text-lake-blue" />
-            </div>
-            <div className="flex gap-2" id="repeat-password-input">
-              <label htmlFor="repeat-password" className="uppercase text-lake-blue">
-                repeat password
-              </label>
-              <input type="password" name="repeat-password" id="repeat-password" className="bg-lake-gray text-lake-blue" />
             </div>
           </div>
           <button className="rounded-full bg-lake-blue px-3 py-2 uppercase text-white">done</button>
