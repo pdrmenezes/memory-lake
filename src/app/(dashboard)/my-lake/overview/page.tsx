@@ -53,14 +53,25 @@ export default function OverviewPage() {
       <div className="flex w-full justify-between px-12 py-12">
         <Link
           href="/my-lake"
-          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           <MoveLeft />
           back to your memories
         </Link>
-        <button className="inline-block rounded-full border-2 border-white bg-lake-blue px-3 py-2 text-sm uppercase text-white hover:border-lake-blue hover:bg-white hover:text-lake-blue">
-          review
-        </button>
+        <div className="flex gap-4">
+          <Link
+            href={"/delete-account"}
+            className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          >
+            delete account
+          </Link>
+          <Link
+            href={"/logout"}
+            className="inline-block rounded-full border-2 border-white bg-lake-blue px-3 py-2 uppercase text-white hover:border-lake-blue hover:bg-white hover:text-lake-blue"
+          >
+            logout
+          </Link>
+        </div>
       </div>
     </main>
   );

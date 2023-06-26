@@ -1,5 +1,7 @@
 import { MoveLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import waterDrop from "@/assets/water-drop.svg";
 
 type PageParams = {
   params: {
@@ -55,14 +57,17 @@ export default function MemoryDetailPage({ params }: PageParams) {
       <div className="flex w-full justify-between px-12 py-12">
         <Link
           href="/my-lake"
-          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           <MoveLeft />
           back to your memories
         </Link>
-        <button className="inline-block rounded-full border-2 border-white bg-lake-blue px-3 py-2 text-sm uppercase text-white hover:border-lake-blue hover:bg-white hover:text-lake-blue">
-          review
-        </button>
+        <Link
+          href={`/memories/send`}
+          className="group flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+        >
+          <Image className="group-hover:brightness-0 group-hover:invert" src={waterDrop} alt="water drop icon" /> send in a bottle
+        </Link>
       </div>
     </main>
   );
