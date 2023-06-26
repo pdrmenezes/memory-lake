@@ -12,51 +12,43 @@ export default function OverviewPage() {
         </div>
         <div className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
           <h4 className="font-semibold">registered in</h4>
-          <h5>sep 15th, 2023</h5>
+          <h5>jun 25th, 2023</h5>
           <h5></h5>
         </div>
-        <div className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
-          <h4 className="font-semibold">
+        <div className="mb-4 grid grid-cols-3 grid-rows-2 gap-2 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+          <h4 className="col-span-1 row-span-1 font-semibold">
             <Image src={waterDrop} alt="water drop icon" />
           </h4>
-          <h5>34 mementos in yout memory lake</h5>
-          <span className="text-xs uppercase text-lake-gray">06 emerged / 28 still to meet you in the future</span>
+          <h5 className="col-span-full col-start-2">34 mementos in your memory lake</h5>
+          <span className="col-span-full col-start-2 text-xs uppercase text-lake-gray">06 emerged / 28 still to meet you in the future</span>
         </div>
-        <div className="mb-4 border-b-2 border-b-lake-blue pb-4 text-lake-blue">
-          <input
-            type="text"
-            name="title"
-            id="title"
-            className="w-full text-4xl uppercase placeholder:text-lake-blue focus:outline-none"
-            placeholder="title"
-          />
+        <div className="mb-4 grid grid-cols-3 grid-rows-2 gap-2 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+          <h4 className="col-span-1 row-span-1 font-semibold uppercase">bottles in lake</h4>
+          <h5 className="col-span-full col-start-2">3/5</h5>
+          <span className="col-span-full col-start-1 text-xs uppercase text-lake-gray">
+            you can send 5 memories to people of your choice per month. sent by email. mementos expire in first day of the month.
+          </span>
         </div>
-        <div className="mb-4 flex gap-4 border-b-2 border-b-lake-blue text-lake-blue">
-          <span className="tex-sm self-start text-lake-gray">0/500</span>
-          <textarea
-            spellCheck={false}
-            maxLength={500}
-            name="description"
-            id="description"
-            className="h-[12ch] flex-1 resize-none border-none text-xl placeholder:text-lake-blue focus:outline-none focus:ring-0"
-            placeholder="About what happened"
-          />
+        <div className="mb-4 grid grid-cols-3 grid-rows-2 gap-2 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+          <h4 className="col-span-1 row-span-1 font-semibold uppercase">receive memories</h4>
+          <h5 className="col-start-2 uppercase">via desktop</h5>
+          <label className="relative col-start-3 inline-flex cursor-pointer items-center">
+            <input type="checkbox" value="" className="peer sr-only" checked />
+            <div className="peer h-6 w-11 rounded-full border-2 border-lake-blue after:absolute after:h-5 after:w-5 after:rounded-full after:bg-lake-blue after:transition-all after:content-[''] peer-checked:bg-lake-blue peer-checked:after:translate-x-full peer-checked:after:bg-white"></div>
+          </label>
+          <h5 className="col-start-2 row-start-2 uppercase">via e-mail</h5>
+          <label className="relative col-start-3 row-start-2 inline-flex cursor-pointer items-center">
+            <input type="checkbox" value="" className="peer sr-only" />
+            <div className="peer h-6 w-11 rounded-full border-2 border-lake-blue after:absolute after:h-5 after:w-5 after:rounded-full after:bg-lake-blue after:transition-all after:content-[''] peer-checked:bg-lake-blue peer-checked:after:translate-x-full peer-checked:after:bg-white"></div>
+          </label>
         </div>
-        <div className="mb-4 flex gap-4 border-b-2 border-b-lake-blue pb-4 text-lake-blue">
-          <h4 className="tex-sm self-start font-semibold uppercase text-lake-blue">meet this memory </h4>
-          <div className="flex-1 uppercase">when time comes</div>
-        </div>
-        <div className="mb-4 flex flex-col gap-4 border-b-2 border-b-lake-blue pb-4 text-lake-blue">
-          <div className="flex gap-2 pr-4" id="email-input">
-            <label htmlFor="email" className="tex-sm self-start font-semibold uppercase text-lake-blue">
-              send in a bottle to
-            </label>
-            <input type="email" name="email" id="email" className="mr-6 flex-1 bg-lake-gray-input text-lake-blue focus:outline-none" />
-          </div>
-          <div className="flex gap-6">
-            <span className="text-xs uppercase text-lake-gray">this memory will meet you both at the same time.</span>
-            <span className="text-xs uppercase text-lake-gray">1/5 memories sent</span>
-          </div>
+        <div className="mb-4 grid grid-cols-3 grid-rows-2 gap-2 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+          <h4 className="col-span-1 row-span-1 font-semibold uppercase">email</h4>
+          <h5 className="col-start-2 uppercase">laurappn@gmail.com</h5>
+          <span className="relative col-start-3 inline-flex cursor-pointer text-sm uppercase text-lake-gray">change</span>
+          <h4 className="col-span-1 row-start-2 font-semibold uppercase">password</h4>
+          <h5 className="col-start-2 uppercase">last changed: june 26th, 2023</h5>
+          <span className="relative col-start-3 inline-flex cursor-pointer text-sm uppercase text-lake-gray">change</span>
         </div>
       </div>
       <div className="flex w-full justify-between">
