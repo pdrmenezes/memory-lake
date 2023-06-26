@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function MyLakePage() {
   return (
     <main className="flex h-full w-full flex-col items-center">
@@ -6,9 +8,12 @@ export default function MyLakePage() {
       </div>
 
       <div className="self-start px-12 py-12">
-        <button className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white">
+        <Link
+          href={`/memories/2`}
+          className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+        >
           see what emerges
-        </button>
+        </Link>
       </div>
     </main>
   );

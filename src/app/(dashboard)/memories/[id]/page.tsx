@@ -1,12 +1,20 @@
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 
-export default function MemoryDetailPage() {
+type PageParams = {
+  params: {
+    id: number;
+  };
+};
+
+export default function MemoryDetailPage({ params }: PageParams) {
+  const id = params.id;
+
   return (
     <main className="flex h-full w-full flex-col items-start justify-between">
       <div className="flex w-full flex-col" id="form">
         <div className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue" id="form-title">
-          <h2 className="col-start-2 mb-4 ml-6 text-xs uppercase text-lake-blue">#09</h2>
+          <h2 className="col-start-2 mb-4 ml-6 text-xs uppercase text-lake-blue">#{id}</h2>
         </div>
         <div className="mb-4 border-b-2 border-b-lake-blue" id="form-title">
           <h2 className="mb-4 ml-6 text-7xl uppercase text-lake-blue">peko peko</h2>
