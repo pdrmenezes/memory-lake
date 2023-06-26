@@ -1,17 +1,18 @@
-import { Hero } from "@/components/Hero";
-import "./globals.css";
-import { Archivo } from "next/font/google";
-import Link from "next/link";
 import { ChevronDownIcon } from "lucide-react";
+import Link from "next/link";
+import "../globals.css";
+import { Archivo } from "next/font/google";
+import scuba from "@/assets/scuba.svg";
+import Image from "next/image";
 
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "600"],
   variable: "--font-archivo",
 });
 
 export const metadata = {
-  title: "Memory Lake",
+  title: "Memory Lake | Memories",
   description: "Save mementos & share them with youself and your loved ones.",
 };
 
@@ -23,7 +24,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* left column */}
           <div className="flex flex-col items-center justify-between overflow-hidden border-r border-black px-28 py-16">
             {/* {isAuthenticated ? <Profile /> : <SignIn />} */}
-            <Hero />
+            <div className="flex h-full max-w-[420px] flex-1 items-center justify-center">
+              <Link
+                href="/memories/new"
+                className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-2 text-sm uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
+              >
+                new memory
+              </Link>
+            </div>
             <div className="flex gap-6 self-start">
               <Link
                 href="/about"
@@ -41,21 +49,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           {/* right column */}
-          <div className="flex max-h-screen flex-col items-center justify-between overflow-hidden bg-white px-28 py-16">
-            <div className="flex gap-6 self-end">
-              <Link
-                href="/signup"
-                className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
-              >
-                sign up
-              </Link>
-              <Link
-                href="/login"
-                className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
-              >
-                login
-              </Link>
-            </div>
+          <div className="flex flex-col items-center justify-between overflow-hidden bg-white px-28 py-16">
+            <Link href="/login" className="flex items-center gap-2 self-end">
+              <ChevronDownIcon size={20} className="text-lake-blue" />
+              <Image src={scuba} alt="scuba diver icon" />
+            </Link>
             {children}
           </div>
         </main>

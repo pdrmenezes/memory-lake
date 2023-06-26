@@ -12,7 +12,8 @@ module.exports = {
       },
       colors: {
         "lake-blue": "#0000FF",
-        "lake-gray": "#F3F2F2",
+        "lake-gray": "#CBCBCB",
+        "lake-gray-input": "#F3F2F2",
       }
     },
   },
