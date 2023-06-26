@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           {/* right column */}
           <div className="flex flex-col items-center justify-between overflow-hidden bg-white px-28 py-16">
-            <Link href="/login" className="flex items-center gap-2 self-end">
+            <Link href="/my-lake/overview" className="flex items-center gap-2 self-end">
               <ChevronDownIcon size={20} className="text-lake-blue" />
               <Image src={scuba} alt="scuba diver icon" />
             </Link>

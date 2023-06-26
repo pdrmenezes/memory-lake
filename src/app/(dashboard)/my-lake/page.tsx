@@ -1,4 +1,4 @@
-export default function MemoriesPage() {
+export default function MyLakePage() {
   return (
     <main className="flex h-full w-full flex-col items-center">
       <div className="flex flex-1 items-center">
