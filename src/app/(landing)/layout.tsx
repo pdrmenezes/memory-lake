@@ -27,13 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex gap-6 self-start">
               <Link
                 href="/about"
-                className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-2 text-sm uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
+                className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-2 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
               >
                 about us
               </Link>
               <Link
                 href="/en"
-                className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue bg-white px-3 py-2 text-sm uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
+                className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue bg-white px-3 py-2 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
               >
                 <ChevronDownIcon size={20} />
                 pt
@@ -45,13 +45,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex gap-6 self-end">
               <Link
                 href="/signup"
-                className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+                className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
               >
                 sign up
               </Link>
               <Link
                 href="/login"
-                className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+                className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
               >
                 login
               </Link>

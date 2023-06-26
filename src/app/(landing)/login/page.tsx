@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function LoginPage() {
   return (
     <main className="flex h-full flex-col items-center justify-center p-24">
@@ -6,7 +8,7 @@ export default function LoginPage() {
           <h2 className="uppercase text-lake-blue">login</h2>
         </div>
         <div className="flex flex-col items-center gap-4 px-10 py-6" id="form-content">
-          <button className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white">
+          <button className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white">
             continue with google
           </button>
           <span className="text-lake-blue">or</span>
@@ -24,7 +26,9 @@ export default function LoginPage() {
               <input type="password" name="password" id="password" className="bg-lake-gray text-lake-blue" />
             </div>
           </div>
-          <button className="rounded-full bg-lake-blue px-3 py-2 uppercase text-white">done</button>
+          <Link href={"/my-lake"} className="rounded-full bg-lake-blue px-3 py-2 uppercase text-white">
+            done
+          </Link>
         </div>
       </div>
     </main>

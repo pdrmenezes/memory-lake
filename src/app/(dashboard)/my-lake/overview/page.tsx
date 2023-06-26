@@ -66,7 +66,8 @@ export default function OverviewPage() {
             delete account
           </Link>
           <Link
-            href={"/logout"}
+            href={"/"}
+            // href={"/logout"}
             className="inline-block rounded-full border-2 border-white bg-lake-blue px-3 py-2 uppercase text-white hover:border-lake-blue hover:bg-white hover:text-lake-blue"
           >
             logout
