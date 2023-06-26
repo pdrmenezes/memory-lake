@@ -15,19 +15,19 @@ export default function SignUpPage() {
               <label htmlFor="email" className="uppercase text-lake-blue">
                 e-mail
               </label>
-              <input type="email" name="email" id="email" className="bg-lake-gray text-lake-blue" />
+              <input type="email" name="email" id="email" className="bg-lake-gray-input text-lake-blue" />
             </div>
             <div className="flex gap-2" id="password-input">
               <label htmlFor="password" className="uppercase text-lake-blue">
                 password
               </label>
-              <input type="password" name="password" id="password" className="bg-lake-gray text-lake-blue" />
+              <input type="password" name="password" id="password" className="bg-lake-gray-input text-lake-blue" />
             </div>
             <div className="flex gap-2" id="repeat-password-input">
               <label htmlFor="repeat-password" className="uppercase text-lake-blue">
                 repeat password
               </label>
-              <input type="password" name="repeat-password" id="repeat-password" className="bg-lake-gray text-lake-blue" />
+              <input type="password" name="repeat-password" id="repeat-password" className="bg-lake-gray-input text-lake-blue" />
             </div>
           </div>
           <button className="rounded-full bg-lake-blue px-3 py-2 uppercase text-white">done</button>

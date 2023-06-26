@@ -17,13 +17,13 @@ export default function LoginPage() {
               <label htmlFor="email" className="uppercase text-lake-blue">
                 e-mail
               </label>
-              <input type="email" name="email" id="email" className="bg-lake-gray text-lake-blue" />
+              <input type="email" name="email" id="email" className="bg-lake-gray-input text-lake-blue" />
             </div>
             <div className="flex gap-2" id="password-input">
               <label htmlFor="password" className="uppercase text-lake-blue">
                 password
               </label>
-              <input type="password" name="password" id="password" className="bg-lake-gray text-lake-blue" />
+              <input type="password" name="password" id="password" className="bg-lake-gray-input text-lake-blue" />
             </div>
           </div>
           <Link href={"/my-lake"} className="rounded-full bg-lake-blue px-3 py-2 uppercase text-white">
