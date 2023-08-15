@@ -1,3 +1,5 @@
+import { GoogleSignInButton } from "@/components/authButtons";
+
 export default function SignUpPage() {
   return (
     <main className="flex h-full flex-col items-center justify-center p-24">
@@ -6,9 +8,8 @@ export default function SignUpPage() {
           <h2 className="uppercase text-lake-blue">sign up</h2>
         </div>
         <div className="flex flex-col items-center gap-4 px-10 py-6" id="form-content">
-          <button className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white">
-            continue with google
-          </button>
+          <GoogleSignInButton />
+
           <span className="text-lake-blue">or</span>
           <div className="space-y-5" id="form-inputs">
             <div className="flex gap-2" id="email-input">
