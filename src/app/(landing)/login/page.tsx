@@ -7,15 +7,19 @@ import { GoogleSignInButton } from "@/components/authButtons";
 
 export default function LoginPage(csrfToken: string) {
   const router = useRouter();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    console.log(data);
 
     const signInResponse = await signIn("credentials", {
-      email: data.get("email"),
-      password: data.get("password"),
+      email: data.email,
+      password: data.password,
       redirect: false,
     });
 
@@ -23,9 +27,9 @@ export default function LoginPage(csrfToken: string) {
       router.push("/my-lake");
     } else {
       console.log("Error: ", signInResponse);
-      setError("Incorret Email or password, please try again or try signing up with a another account");
+      setError("Incorret email or password, please try again.");
     }
-  };
+  }
 
   return (
     <main className="flex h-full flex-col items-center justify-center p-24">
@@ -41,23 +45,36 @@ export default function LoginPage(csrfToken: string) {
               <label htmlFor="email" className="uppercase text-lake-blue">
                 e-mail
               </label>
-              <input type="email" name="email" id="email" className="bg-lake-gray-input text-lake-blue" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={data.email}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
+                className="bg-lake-gray-input text-lake-blue"
+              />
             </div>
             <div className="flex gap-2" id="password-input">
               <label htmlFor="password" className="uppercase text-lake-blue">
                 password
               </label>
-              <input type="password" name="password" id="password" className="bg-lake-gray-input text-lake-blue" />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={data.password}
+                onChange={(e) => setData({ ...data, password: e.target.value })}
+                className="bg-lake-gray-input text-lake-blue"
+              />
             </div>
+            {error && <span className="my-2 text-xs font-medium text-yellow-500">{error}</span>}
+            <button
+              type="submit"
+              className="justify-self-center inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+            >
+              Login w/ NextAuth
+            </button>
           </form>
-          {error && <span className="p-4 mb-2 text-lg font-semibold text-yellow-500">{error}</span>}
-
-          <button
-            type="submit"
-            className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
-          >
-            Login w/ NextAuth
-          </button>
           <Link href={"/my-lake"} className="rounded-full bg-lake-blue px-3 py-2 uppercase text-white">
             done
           </Link>

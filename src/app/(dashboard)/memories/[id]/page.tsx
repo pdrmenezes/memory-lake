@@ -2,6 +2,8 @@ import { MoveLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import waterDrop from "@/assets/water-drop.svg";
+import { getServerSession } from "next-auth";
+import { authConfig } from "@/lib/auth";
 
 type PageParams = {
   params: {
@@ -9,8 +11,13 @@ type PageParams = {
   };
 };
 
-export default function MemoryDetailPage({ params }: PageParams) {
+export default async function MemoryDetailPage({ params }: PageParams) {
   const id = params.id;
+  const session = await getServerSession(authConfig);
+  console.log("Session: ", session);
+  console.log("Session.user.name: ", session?.user?.name);
+  console.log("Session.user.email: ", session?.user?.email);
+  console.log("Session.user.image: ", session?.user?.image);
 
   return (
     <main className="flex h-full w-full flex-col items-start justify-between">

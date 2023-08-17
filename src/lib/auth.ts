@@ -8,18 +8,19 @@ import { useRouter } from "next/router";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "./prisma";
 
-// import prisma from './prisma'
-
 export const authConfig: NextAuthOptions = {
+  adapter: PrismaAdapter(prisma),
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
     CredentialsProvider({
+      id: "credentials",
       name: "Email & Password",
       credentials: {
-        email: {
-          label: "Email",
-          type: "email",
-          placeholder: "dive@memorylake.com",
-        },
+        name: { label: "Name", type: "text" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
@@ -34,15 +35,24 @@ export const authConfig: NextAuthOptions = {
         }
       },
     }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    }),
   ],
   pages: {
     signIn: "/login",
   },
-  adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt",
+  },
+  // callbacks: {
+  //   jwt: async ({ token, user }) => {
+  //     user && (token.user = user);
+  //     return token;
+  //   },
+  //   session: async ({ session, token }) => {
+  //     const user = token.user;
+  //     session.user = user;
+  //     return session;
+  //   },
+  // },
 };
 
 export async function loginIsRequiredServer() {

@@ -3,7 +3,7 @@ import "../globals.css";
 import { Archivo } from "next/font/google";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { SessionProvider } from "@/components/SessionProvider";
+import { SessionProvider } from "@/context/SessionProvider";
 import { AuthenticateButtons } from "@/components/AuthenticateButtons";
 
 const archivo = Archivo({

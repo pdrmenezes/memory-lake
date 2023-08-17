@@ -6,7 +6,7 @@ import scuba from "@/assets/scuba.svg";
 import Image from "next/image";
 import { getServerSession } from "next-auth";
 import { authConfig, loginIsRequiredServer } from "@/lib/auth";
-import { SessionProvider } from "@/components/SessionProvider";
+import { SessionProvider } from "@/context/SessionProvider";
 
 const archivo = Archivo({
   subsets: ["latin"],
