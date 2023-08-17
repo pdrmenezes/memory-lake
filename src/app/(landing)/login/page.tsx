@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { GoogleSignInButton } from "@/components/authButtons";
 
-export default function LoginPage(csrfToken: string) {
+export default function LoginPage() {
   const router = useRouter();
   const [data, setData] = useState({
     email: "",
