@@ -3,8 +3,10 @@ import "../globals.css";
 import { Archivo } from "next/font/google";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { SessionProvider } from "@/context/SessionProvider";
+import SessionProvider from "@/context/SessionProvider";
 import { AuthenticateButtons } from "@/components/AuthenticateButtons";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -17,11 +19,13 @@ export const metadata = {
   description: "Save mementos & share them with youself and your loved ones.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
       <body className={`${archivo.variable} bg-lake-blue font-sans text-gray-100 `}>
-        <SessionProvider>
+        <SessionProvider session={session}>
           <main className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
             {/* left column */}
             <div className="flex flex-col items-center justify-between overflow-hidden border-r border-black px-28 py-16">
@@ -46,20 +50,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* right column */}
             <div className="flex max-h-screen flex-col items-center justify-between overflow-hidden bg-white px-28 py-16">
               <AuthenticateButtons />
-              {/* <div className="flex gap-6 self-end">
-                <Link
-                  href="/signup"
-                  className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
-                >
-                  sign up
-                </Link>
-                <Link
-                  href="/login"
-                  className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
-                >
-                  login
-                </Link>
-              </div> */}
               {children}
             </div>
           </main>

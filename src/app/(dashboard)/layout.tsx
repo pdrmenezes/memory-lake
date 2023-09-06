@@ -5,8 +5,9 @@ import { Archivo } from "next/font/google";
 import scuba from "@/assets/scuba.svg";
 import Image from "next/image";
 import { getServerSession } from "next-auth";
-import { authConfig, loginIsRequiredServer } from "@/lib/auth";
-import { SessionProvider } from "@/context/SessionProvider";
+import { authOptions } from "@/lib/auth";
+import SessionProvider from "@/context/SessionProvider";
+import { redirect } from "next/navigation";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -20,13 +21,16 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  await loginIsRequiredServer();
-  const session = await getServerSession(authConfig);
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    redirect("/login");
+  }
 
   return (
     <html lang="en">
       <body className={`${archivo.variable} bg-lake-blue font-sans text-gray-100 `}>
-        <SessionProvider>
+        <SessionProvider session={session}>
           <main className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
             {/* left column */}
             <div className="flex flex-col items-center justify-between overflow-hidden border-r border-black px-28 py-16">

@@ -7,8 +7,9 @@ import GoogleProvider from "next-auth/providers/google";
 import { useRouter } from "next/router";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "./prisma";
+import { compare } from "bcryptjs";
 
-export const authConfig: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -16,17 +17,28 @@ export const authConfig: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     CredentialsProvider({
-      id: "credentials",
       name: "Email & Password",
+      type: "credentials",
       credentials: {
         name: { label: "Name", type: "text" },
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials || !credentials.email || !credentials.password) return null;
+        if (!credentials || !credentials.email || !credentials.password) throw new Error("Missing fields");
 
-        const dbUser = await prisma.user.findFirst({ where: { email: credentials.email } });
+        const dbUser = await prisma.user.findUnique({ where: { email: credentials.email } });
+
+        if (!dbUser || !dbUser.hashedPassword) {
+          // throw new Error("No user found with this sign in method");
+          throw new Error("Incorret email or password, please try again");
+        }
+        const passwordsMatch = await compare(credentials.password, dbUser.hashedPassword);
+
+        if (!passwordsMatch) {
+          // throw new Error("Incorrect password");
+          throw new Error("Incorret email or password, please try again");
+        }
 
         if (dbUser && dbUser.email === credentials.email) {
           return dbUser;
@@ -42,28 +54,19 @@ export const authConfig: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  // callbacks: {
-  //   jwt: async ({ token, user }) => {
-  //     user && (token.user = user);
-  //     return token;
-  //   },
-  //   session: async ({ session, token }) => {
-  //     const user = token.user;
-  //     session.user = user;
-  //     return session;
-  //   },
-  // },
+  callbacks: {
+    async session({ session, token }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.sub,
+        },
+      };
+    },
+    async jwt({ token, user }) {
+      user && (token.user = user);
+      return token;
+    },
+  },
 };
-
-export async function loginIsRequiredServer() {
-  const session = await getServerSession(authConfig);
-  if (!session) return redirect("/");
-}
-// export function useRequiredLoginClient() {
-//   if (typeof window !== "undefined") {
-//     const session = useSession();
-//     const router = useRouter();
-//     if (!session) router.push("/");
-//     return { session };
-//   }
-// }

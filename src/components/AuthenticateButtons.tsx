@@ -1,12 +1,12 @@
-"use client";
 import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react";
 import scuba from "@/assets/scuba.svg";
 import { ChevronDownIcon } from "lucide-react";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
-export function AuthenticateButtons() {
-  const { data: session } = useSession();
+export async function AuthenticateButtons() {
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="flex gap-6 self-end">
