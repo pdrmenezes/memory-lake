@@ -55,7 +55,18 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    async session({ session, token }) {
+    async jwt({ token, user, session }) {
+      if (user) {
+        return {
+          ...token,
+          user: {
+            ...user,
+          },
+        };
+      }
+      return token;
+    },
+    async session({ session, token, user }) {
       return {
         ...session,
         user: {
@@ -63,10 +74,6 @@ export const authOptions: NextAuthOptions = {
           id: token.sub,
         },
       };
-    },
-    async jwt({ token, user }) {
-      user && (token.user = user);
-      return token;
     },
   },
 };
