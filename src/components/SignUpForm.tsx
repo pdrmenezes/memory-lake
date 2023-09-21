@@ -68,7 +68,6 @@ export function SignUpForm() {
   return (
     <div className="flex flex-col items-center gap-4 px-10 py-6" id="form-content">
       <GoogleSignInButton />
-
       <span className="text-lake-blue">or</span>
       <form onSubmit={handleSubmit} className="flex flex-col items-start space-y-5" id="form-inputs">
         <div className="flex gap-2 w-full" id="name-input">
