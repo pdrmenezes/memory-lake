@@ -47,7 +47,7 @@ export default function NewMemoryPage() {
             <label htmlFor="email" className="tex-sm ml-6 self-start font-semibold uppercase text-lake-blue">
               send in a bottle to
             </label>
-            <input type="email" name="email" id="email" className="mr-6 flex-1 bg-lake-gray-input text-lake-blue focus:outline-none" />
+            <input type="email" name="email" id="email" className="mr-9 bg-lake-gray-input text-lake-blue flex-1 focus:outline-none px-1" />
           </div>
           <div className="flex gap-6">
             <span className="ml-6 text-xs uppercase text-lake-gray">this memory will meet you both at the same time.</span>
