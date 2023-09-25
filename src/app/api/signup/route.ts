@@ -35,17 +35,18 @@ export async function POST(request: Request) {
           hashedPassword,
         },
       });
-      return NextResponse.json(
-        Object.keys(zodErrors).length > 0
-          ? { errors: zodErrors }
-          : {
-              success: "user successfully created!",
+
+      Object.keys(zodErrors).length > 0
+        ? NextResponse.json({ errors: zodErrors }, { status: 400 })
+        : NextResponse.json(
+            {
               user: {
                 name: user.name,
                 email: user.email,
               },
-            }
-      );
+            },
+            { status: 201 }
+          );
     }
   } catch (error: any) {
     return new NextResponse(
