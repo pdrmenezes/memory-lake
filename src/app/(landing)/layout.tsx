@@ -26,10 +26,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body className={`${archivo.variable} bg-lake-blue font-sans text-gray-100 `}>
         <SessionProvider session={session}>
-          <main className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
+          <main className="grid min-h-screen grid-cols-1 md:grid-cols-2">
             {/* left column */}
-            <div className="flex flex-col items-center justify-between overflow-hidden border-r border-black px-28 py-16">
-              {/* {isAuthenticated ? <Profile /> : <SignIn />} */}
+            <div className="flex flex-col min-h-[70vh] items-center justify-between overflow-hidden border-r gap-4 border-black px-16 md:px-28 py-16">
               <Hero />
               <div className="flex gap-6 self-start">
                 <Link
@@ -48,7 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               </div>
             </div>
             {/* right column */}
-            <div className="flex max-h-screen flex-col items-center justify-between overflow-hidden bg-white px-28 py-16">
+            <div className="flex md:max-h-screen flex-col gap-4 items-center justify-between overflow-hidden bg-white px-4 py-4 md:py-16">
               <AuthenticateButtons />
               {children}
             </div>
