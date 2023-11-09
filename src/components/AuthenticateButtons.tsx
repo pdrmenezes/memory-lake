@@ -19,13 +19,13 @@ export async function AuthenticateButtons() {
         <>
           <Link
             href="/signup"
-            className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+            className="inline-block rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
           >
             sign up
           </Link>
           <Link
             href="/login"
-            className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+            className="inline-block rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
           >
             login
           </Link>

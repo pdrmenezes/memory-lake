@@ -8,6 +8,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import SessionProvider from "@/context/SessionProvider";
 import { redirect } from "next/navigation";
+import { ScubaIcon } from "@/assets/icons/ScubaIcon";
+import { UserMenu } from "./_components/UserMenu";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -29,15 +31,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className={`${archivo.variable} bg-lake-blue font-sans text-gray-100 `}>
+      <body className={`${archivo.variable} bg-lake-blue font-sans text-gray-100 subpixel-antialiased`}>
         <SessionProvider session={session}>
           <main className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
             {/* left column */}
-            <div className="flex flex-col items-center justify-between overflow-hidden border-r border-black px-28 py-16">
+            <div className="flex min-h-[70vh] flex-col items-center justify-between overflow-hidden border-r border-black px-28 py-16">
               <div className="flex h-full max-w-[420px] flex-1 items-center justify-center">
                 <Link
                   href="/memories/new"
-                  className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-2 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
+                  className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-1 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
                 >
                   new memory
                 </Link>
@@ -45,13 +47,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <div className="flex gap-6 self-start">
                 <Link
                   href="/about"
-                  className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-2 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
+                  className="inline-block rounded-full border-2 border-lake-blue bg-white px-3 py-1 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
                 >
                   about us
                 </Link>
                 <Link
                   href="/en"
-                  className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue bg-white px-3 py-2 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
+                  className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue bg-white px-3 py-1 uppercase text-lake-blue hover:border-white hover:bg-white/25 hover:text-white"
                 >
                   <ChevronDownIcon size={20} />
                   pt
@@ -60,12 +62,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </div>
             {/* right column */}
             <div className="flex flex-col items-center justify-between overflow-hidden bg-white">
-              <>
+              <UserMenu className="mx-12 mb-2 mt-12 flex items-center gap-2 self-end" />
+              {/* <>
                 <Link href="/my-lake/overview" className="flex items-center gap-2 self-end px-12 pt-12">
                   <ChevronDownIcon size={20} className="text-lake-blue" />
-                  <Image src={scuba} alt="scuba diver icon" />
+                  <ScubaIcon className="w-5 h-5" /> <Image src={scuba} alt="scuba diver icon" />
                 </Link>
-              </>
+              </> */}
               {children}
             </div>
           </main>

@@ -10,7 +10,7 @@ export default function MyLakePage() {
       <div className="self-start px-12 py-12">
         <Link
           href={`/memories/2`}
-          className="inline-block rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="inline-block rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           see what emerges
         </Link>

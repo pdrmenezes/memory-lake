@@ -12,7 +12,10 @@ export default function NewMemoryPage() {
         <div className="mb-4 border-b-2 border-b-lake-blue" id="form-title">
           <h2 className="mb-4 ml-6 text-7xl uppercase text-lake-blue">new memory</h2>
         </div>
-        <div className="mb-4 grid grid-cols-4 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+        <div
+          className="mb-4 grid grid-cols-4 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue"
+          id="form-date"
+        >
           <h4 className="ml-6 font-semibold">date</h4>
           <h5>nov 12, 2019</h5>
           <h5>10 PM</h5>
@@ -47,10 +50,17 @@ export default function NewMemoryPage() {
             <label htmlFor="email" className="tex-sm ml-6 self-start font-semibold uppercase text-lake-blue">
               send in a bottle to
             </label>
-            <input type="email" name="email" id="email" className="mr-9 bg-lake-gray-input text-lake-blue flex-1 focus:outline-none px-1" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="mr-9 bg-lake-gray-input text-lake-blue flex-1 focus:outline-none px-1"
+            />
           </div>
           <div className="flex gap-6">
-            <span className="ml-6 text-xs uppercase text-lake-gray">this memory will meet you both at the same time.</span>
+            <span className="ml-6 text-xs uppercase text-lake-gray">
+              this memory will meet you both at the same time.
+            </span>
             <span className="text-xs uppercase text-lake-gray">1/5 memories sent</span>
           </div>
         </div>
@@ -58,12 +68,12 @@ export default function NewMemoryPage() {
       <div className="flex w-full justify-between px-12 py-12">
         <Link
           href="/my-lake"
-          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-1 text-sm uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           <MoveLeft />
           back to your memories
         </Link>
-        <button className="inline-block rounded-full border-2 border-white bg-lake-blue px-3 py-2 text-sm uppercase text-white hover:border-lake-blue hover:bg-white hover:text-lake-blue">
+        <button className="inline-block rounded-full border-2 border-white bg-lake-blue px-3 py-1 text-sm uppercase text-white hover:border-lake-blue hover:bg-white hover:text-lake-blue">
           review
         </button>
       </div>

@@ -24,21 +24,28 @@ export default async function MemoryDetailPage({ params }: PageParams) {
         <div className="mb-4 border-b-2 border-b-lake-blue" id="form-title">
           <h2 className="mb-4 ml-6 text-7xl uppercase text-lake-blue">peko peko</h2>
         </div>
-        <div className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+        <div
+          className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue"
+          id="form-date"
+        >
           <h4 className="ml-6 font-semibold">date</h4>
           <h5>nov 12, 2019</h5>
           <h5>10 PM</h5>
         </div>
-        <div className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue" id="form-date">
+        <div
+          className="mb-4 grid grid-cols-3 border-b-2 border-b-lake-blue pb-4 uppercase text-lake-blue"
+          id="form-date"
+        >
           <h4 className="ml-6 font-semibold">location</h4>
           <h5 className="uppercase">guadalajara, jalisco</h5>
           <h5 className="uppercase">mexico</h5>
         </div>
         <div className="mb-4 flex gap-4 border-b-2 border-b-lake-blue text-lake-blue">
           <p className="ml-6">
-            We left Fenix Beds Hotel to explore a Colonia Americana. We tooke some pictures at Hera, but had no money to buy us a coffee. When we
-            found La Tetería, we entered to drink something and did a list for the future. Day finished at Peko Peko with some pictures of us bathed
-            by the red lights of the restaurant. Always a joy discover new places, flavors and feelings with you.
+            We left Fenix Beds Hotel to explore a Colonia Americana. We tooke some pictures at Hera, but had no money to
+            buy us a coffee. When we found La Tetería, we entered to drink something and did a list for the future. Day
+            finished at Peko Peko with some pictures of us bathed by the red lights of the restaurant. Always a joy
+            discover new places, flavors and feelings with you.
           </p>
           <textarea
             spellCheck={false}
@@ -60,16 +67,17 @@ export default async function MemoryDetailPage({ params }: PageParams) {
       <div className="flex w-full justify-between px-12 py-12">
         <Link
           href="/my-lake"
-          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           <MoveLeft />
           back to your memories
         </Link>
         <Link
           href={`/memories/send`}
-          className="group flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="group flex items-center justify-center gap-1 rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
-          <Image className="group-hover:brightness-0 group-hover:invert" src={waterDrop} alt="water drop icon" /> send in a bottle
+          <Image className="group-hover:brightness-0 group-hover:invert" src={waterDrop} alt="water drop icon" /> send
+          in a bottle
         </Link>
       </div>
     </main>

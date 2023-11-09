@@ -83,34 +83,56 @@ export function SignUpForm() {
           <label htmlFor="name" className="uppercase text-lake-blue">
             name
           </label>
-          <input {...register("name")} type="text" id="name" className="bg-lake-gray-input text-lake-blue flex-1 px-1" />
+          <input
+            {...register("name")}
+            type="text"
+            id="name"
+            className="bg-lake-gray-input text-lake-blue flex-1 px-1"
+          />
         </div>
         {errors.name && <p className="text-red-700 text-xs uppercase">{`${errors.name.message}`}</p>}
         <div className="flex gap-2 w-full" id="email-input">
           <label htmlFor="email" className="uppercase text-lake-blue">
             e-mail
           </label>
-          <input {...register("email")} type="email" id="email" className="bg-lake-gray-input text-lake-blue flex-1 px-1" />
+          <input
+            {...register("email")}
+            type="email"
+            id="email"
+            className="bg-lake-gray-input text-lake-blue flex-1 px-1"
+          />
         </div>
         {errors.email && <p className="text-red-700 text-xs uppercase">{`${errors.email.message}`}</p>}
         <div className="flex gap-2 w-full" id="password-input">
           <label htmlFor="password" className="uppercase text-lake-blue">
             password
           </label>
-          <input {...register("password")} type="password" id="password" className="bg-lake-gray-input text-lake-blue flex-1 px-1" />
+          <input
+            {...register("password")}
+            type="password"
+            id="password"
+            className="bg-lake-gray-input text-lake-blue flex-1 px-1"
+          />
         </div>
         {errors.password && <p className="text-red-700 text-xs uppercase">{`${errors.password.message}`}</p>}
         <div className="flex gap-2 w-full" id="repeat-password-input">
           <label htmlFor="repeat-password" className="uppercase text-lake-blue">
             repeat password
           </label>
-          <input {...register("repeatPassword")} type="password" id="repeat-password" className="bg-lake-gray-input text-lake-blue flex-1 px-1" />
+          <input
+            {...register("repeatPassword")}
+            type="password"
+            id="repeat-password"
+            className="bg-lake-gray-input text-lake-blue flex-1 px-1"
+          />
         </div>
-        {errors.repeatPassword && <p className="text-red-700 text-xs uppercase">{`${errors.repeatPassword.message}`}</p>}
+        {errors.repeatPassword && (
+          <p className="text-red-700 text-xs uppercase">{`${errors.repeatPassword.message}`}</p>
+        )}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="self-center rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="self-center rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           {isSubmitting ? "loading" : "sign up"}
         </button>

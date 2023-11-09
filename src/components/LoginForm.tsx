@@ -73,7 +73,7 @@ export function LoginForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="self-center rounded-full border-2 border-lake-blue px-3 py-2 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
+          className="self-center rounded-full border-2 border-lake-blue px-3 py-1 uppercase text-lake-blue hover:bg-lake-blue/75 hover:text-white"
         >
           {isLoading ? "loading" : "done"}
         </button>
