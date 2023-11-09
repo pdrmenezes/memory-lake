@@ -4,7 +4,7 @@ export default function MyLakePage() {
   return (
     <main className="flex h-full w-full flex-col items-center">
       <div className="mb-4 flex w-full flex-1 items-center justify-center border-b-2 border-b-lake-blue pb-4">
-        <h1 className="text-lake-blue uppercase">all memories</h1>
+        <h1 className="uppercase text-lake-blue">all memories</h1>
       </div>
 
       <div className="self-start px-12 py-12">
